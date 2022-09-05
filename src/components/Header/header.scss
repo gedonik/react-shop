@@ -1,0 +1,26 @@
+.header {
+  margin-bottom: 20px;
+  padding: 20px 0;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    margin-bottom: auto;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__link {
+    color: #000;
+  }
+}
