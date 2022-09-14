@@ -15,6 +15,9 @@
   }
 
   &__item {
+    font-size: 18px;
+    font-weight: 700;
+
     &:not(:last-child) {
       margin-right: 15px;
     }
@@ -22,5 +25,31 @@
 
   &__link {
     color: #000;
+  }
+
+  .header-cart {
+    border: 2px solid var(--main-blue);
+    border-radius: 7px;
+    color: var(--dark-color);
+
+    &__total-price {
+      position: relative;
+      padding: 20px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        width: 2px;
+        height: 12px;
+        background-color: var(--main-blue);
+      }
+    }
+
+    &__total-quantity {
+      padding: 20px;
+    }
   }
 }

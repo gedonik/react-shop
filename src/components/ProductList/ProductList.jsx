@@ -8,8 +8,6 @@ import './productList.scss';
 const ProductList = () => {
     const filtered = useSelector(state => state.dataApi.filteredCat);
 
-    console.log(filtered);
-
     return (
         <div className="container">
             <ul >

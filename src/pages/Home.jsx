@@ -1,7 +1,7 @@
 import Header from "../components/Header/Header.jsx";
 import ProductList from "../components/ProductList/ProductList.jsx";
 import Filters from "../components/Filters/Filters.jsx";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {fetchApi} from "../redux/slices/dataApiSlice.js";
 import {useDispatch, useSelector} from "react-redux";
 
