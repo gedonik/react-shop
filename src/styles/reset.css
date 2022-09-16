@@ -17,9 +17,9 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 0.938rem;
 }
 
 .loading {
@@ -27,8 +27,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 8px;
+    width: 0.375rem;
+    height: 0.5rem;
     background-color: #3a4859;
     border-radius: 9em;
 }

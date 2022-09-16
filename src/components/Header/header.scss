@@ -1,6 +1,6 @@
 .header {
-  margin-bottom: 20px;
-  padding: 20px 0;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem 0;
 
   &__wrapper {
     display: flex;
@@ -15,11 +15,11 @@
   }
 
   &__item {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
 
     &:not(:last-child) {
-      margin-right: 15px;
+      margin-right: 0.938rem;
     }
   }
 
@@ -29,12 +29,12 @@
 
   .header-cart {
     border: 2px solid var(--main-blue);
-    border-radius: 7px;
+    border-radius: 0.438rem;
     color: var(--dark-color);
 
     &__total-price {
       position: relative;
-      padding: 20px;
+      padding: 1.25rem;
 
       &::after {
         content: '';
@@ -42,14 +42,14 @@
         top: 50%;
         transform: translateY(-50%);
         right: 0;
-        width: 2px;
-        height: 12px;
+        width: 0.125rem;
+        height: 0.75rem;
         background-color: var(--main-blue);
       }
     }
 
     &__total-quantity {
-      padding: 20px;
+      padding: 1.25rem;
     }
   }
 }

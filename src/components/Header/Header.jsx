@@ -10,8 +10,6 @@ const Header = () => {
     const cart = useSelector(state => state.dataApi.cart);
     const total = useSelector(state => state.dataApi.total);
 
-    console.log('header')
-
     return (
         <header className="header">
             <div className="container">

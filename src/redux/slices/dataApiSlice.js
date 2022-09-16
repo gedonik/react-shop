@@ -68,8 +68,7 @@ export const dataApiSlice = createSlice({
             }
         },
         searchProduct(state, action) {
-            //Не работает почему-то
-            state.filteredCat.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()));
+            state.filteredCat = state.filteredCat.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()));
         },
         addProduct(state, action) {
             const findProduct = state.cart.find(item => item.id === action.payload.id);
