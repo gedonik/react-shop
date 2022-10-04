@@ -4,7 +4,7 @@ import CartList from "../components/CartList/CartList.jsx";
 
 const Cart = () => {
     return (
-        <div>
+        <div className="cart-wrapper">
             <Header/>
             <CartList/>
         </div>

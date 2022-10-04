@@ -14,10 +14,25 @@
   }
 
   &__img {
-    width: 4.063rem;
+    max-width: 4.063rem;
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    margin-right: 0.938rem;
+  }
+
+  &__title {
+    max-width: 200px;
+    width: 100%;
+
+    @media screen and (max-width: 550px) {
+      display: none;
+    }
+  }
+
+  &__price {
+    @media screen and (max-width: 390px) {
+      display: none;
+    }
   }
 
   .quantity {

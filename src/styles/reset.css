@@ -25,23 +25,3 @@ body {
 .loading {
     text-align: center;
 }
-
-::-webkit-scrollbar {
-    width: 0.375rem;
-    height: 0.5rem;
-    background-color: #3a4859;
-    border-radius: 9em;
-}
-
-::-webkit-scrollbar:hover {
-    background-color: #475565;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #fff;
-    border-radius: 9em;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #9f9fa1;
-}

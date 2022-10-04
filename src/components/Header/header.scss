@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     margin-bottom: auto;
+    flex: 3;
   }
 
   &__item {
@@ -23,8 +24,21 @@
     }
   }
 
+  a {
+    color: var(--dark-color);
+  }
+
   &__link {
     color: #000;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--main-blue);
+    }
+  }
+
+  &__link--active {
+    color: var(--main-blue) !important;
   }
 
   .header-cart {

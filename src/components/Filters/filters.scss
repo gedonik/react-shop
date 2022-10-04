@@ -1,23 +1,6 @@
-.filters {
+.filters-wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-
-  &__list {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0;
-  }
-
-  &__item {
-    &:not(:last-child) {
-      margin-right: 0.938rem;
-    }
-  }
-}
-
-.active {
-  background-color: white !important;
-  color: black !important;
 }
