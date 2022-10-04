@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Rate} from 'antd';
 import {useSelector, useDispatch} from "react-redux";
-import {addProduct} from "../../redux/slices/dataApiSlice.js";
+import {addProduct} from "../../redux/slices/cartSlice.js";
 
 import './productItem.scss';
 
 const ProductItem = ({id, title, image, rating, price, description}) => {
-    const cart = useSelector(state => state.dataApi.cart);
+    const cart = useSelector(state => state.cart.cart);
     const dispatch = useDispatch();
     const [amount, setAmount] = useState(0);
+
+    console.log('product-item');
 
     const [findItem] = cart.filter(item => item.id === id);
 

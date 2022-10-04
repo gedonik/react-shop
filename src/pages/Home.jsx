@@ -2,11 +2,11 @@ import Header from "../components/Header/Header.jsx";
 import ProductList from "../components/ProductList/ProductList.jsx";
 import Filters from "../components/Filters/Filters.jsx";
 import {useEffect} from "react";
-import {fetchApi} from "../redux/slices/dataApiSlice.js";
+import {fetchApi} from "../redux/slices/catalogSlice.js";
 import {useDispatch, useSelector} from "react-redux";
 
 const Home = () => {
-    const {status, error} = useSelector(state => state.dataApi);
+    const {status, error} = useSelector(state => state.catalog);
     const dispatch = useDispatch();
 
     useEffect(() => {

@@ -1,8 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit'
-import dataApiSlice from "./slices/dataApiSlice.js";
-
+import {configureStore} from '@reduxjs/toolkit'
+import catalogSlice from "./slices/catalogSlice.js";
+import cartSlice from "./slices/cartSlice.js";
 export const store = configureStore({
     reducer: {
-        dataApi: dataApiSlice,
+        catalog: catalogSlice,
+        cart: cartSlice,
     },
 })

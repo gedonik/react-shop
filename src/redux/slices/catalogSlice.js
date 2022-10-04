@@ -19,33 +19,35 @@ export const fetchApi = createAsyncThunk(
         } catch (error) {
             return rejectWithValue(error.message);
         }
-
     }
 )
 
-export const dataApiSlice = createSlice({
-    name: 'dataApi',
+export const catalogSlice = createSlice({
+    name: 'catalog',
     initialState: {
         status: null,
         error: null,
         products: [],
         filteredCat: [],
-        cart: [],
-        total: 0
+        categories: [
+            {key: 'all', title: 'All'},
+            {key: "men's clothing", title: "Men's wear"},
+            {key: "women's clothing", title: "Women's wear"},
+            {key: "jewelery", title: "Jewelery"},
+            {key: "electronics", title: "Tech"},
+        ],
     },
     reducers: {
-        filterCategory(state, action) {
-            //Не нравится реализация, если на кнопке что-то другое написать, сломается
-            state.filteredCat = state.products.filter(item => {
-                if (action.payload === 'All') {
+        filterCategories(state, action) {
+            state.filteredCat = state.products.filter(product => {
+                if (action.payload === 'all') {
                     return state.products;
                 } else {
-                    return item.category === action.payload.toLowerCase();
+                    return product.category === action.payload;
                 }
             });
         },
         sortProducts(state, action) {
-            //Не нравится это, вроде DRY нарушен, switch case не исправит думаю
             if (action.payload === 'rating-to-low') {
                 state.filteredCat.sort((a, b) => {
                     return b.rating.rate - a.rating.rate
@@ -68,19 +70,8 @@ export const dataApiSlice = createSlice({
             }
         },
         searchProduct(state, action) {
-            //Не работает почему-то
-            state.filteredCat.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()));
+            state.filteredCat = state.filteredCat.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()));
         },
-        addProduct(state, action) {
-            const findProduct = state.cart.find(item => item.id === action.payload.id);
-            findProduct ? findProduct.quantity++ : state.cart.push(action.payload);
-            state.total = state.cart.reduce((sum, item) => {
-                return item.price * item.quantity + sum;
-            }, 0).toFixed(2)
-        },
-        removeProduct(state, action) {
-           state.cart = state.cart.filter(item => item.id !== action.payload);
-        }
     },
     extraReducers: {
         [fetchApi.pending]: (state) => {
@@ -99,6 +90,6 @@ export const dataApiSlice = createSlice({
     }
 })
 
-export const {filterCategory, sortProducts, searchProduct, addProduct, removeProduct} = dataApiSlice.actions;
+export const {filterCategories, sortProducts, searchProduct,} = catalogSlice.actions;
 
-export default dataApiSlice.reducer;
+export default catalogSlice.reducer;

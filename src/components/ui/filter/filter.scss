@@ -1,0 +1,35 @@
+.filter {
+  margin-bottom: 0;
+
+  &__list {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 0.938rem;
+    }
+  }
+}
+
+.active {
+  background-color: white !important;
+  color: black !important;
+}
+
+@media screen and (max-width: 1050px) {
+  .filter {
+    justify-content: center;
+
+    &__list {
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-right: 10px;
+      margin-bottom: 0.938rem !important;
+    }
+  }
+}

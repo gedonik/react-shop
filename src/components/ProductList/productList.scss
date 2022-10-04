@@ -1,8 +1,8 @@
 .products {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  padding: 20px 0;
+  grid-gap: 1.25rem;
+  padding: 1.25rem 0;
 }
 
 .product-animate-enter {
@@ -13,4 +13,27 @@
 .product-animate-exit {
   opacity: 0;
   transition: opacity 300ms ease-in;
+}
+
+@media screen and (max-width: 900px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .products {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+  }
+
+  .product-item__wrapper {
+    max-width: none;
+  }
 }
