@@ -1,19 +1,27 @@
 import React from 'react';
 import Header from "../components/Header/Header.jsx";
-import {Link} from "react-router-dom";
-import {GithubOutlined} from '@ant-design/icons';
-import {LinkedinOutlined} from '@ant-design/icons';
+import {GithubOutlined, LinkedinOutlined, MailOutlined, PhoneOutlined} from '@ant-design/icons';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faVk, faTelegram} from "@fortawesome/free-brands-svg-icons";
 
 import './about.scss';
 
-const About = () => {
-    const links = [<GithubOutlined />, 'vk', <LinkedinOutlined />, 'telegram'];
+const links = [
+    {link: 'https://github.com/gedonik', title: <GithubOutlined />},
+    {link: 'https://vk.com/gedonik', title: <FontAwesomeIcon icon={faVk}></FontAwesomeIcon>},
+    {link: 'https://www.linkedin.com/in/viacheslav-kolbantsev-828044238/', title: <LinkedinOutlined />},
+    {link: 'https://t.me/gedonik', title: <FontAwesomeIcon icon={faTelegram}></FontAwesomeIcon>},
+    {link: 'mailto:vkolbantsev@inbox.ru', title: <MailOutlined />},
+    {link: 'tel:+79251445536', title: <PhoneOutlined />},
+];
 
+const About = () => {
     return (
         <div className="about">
             <Header/>
             <div className="container">
                 <h2 className="about__title">Описание приложения</h2>
+
                 <p className="about__description">Данное приложение было разработано в учебных целях Колбанцев
                     Вячеславом, для демонстрации навыков frontend-разработки.</p>
                 <p className="about__description">Используемые технологии:
@@ -22,13 +30,13 @@ const About = () => {
                 </p>
                 <p>Связаться со мной можно по ссылкам ниже:</p>
                 <ul className="about__list">
-                    {links.map((item, idx) =>
+                    {links?.map((link,idx) => (
                         <li className="about__item" key={idx}>
-                            <Link className="about__link" to="/">
-                                {item}
-                            </Link>
+                            <a className="about__link" href={link.link} target="_blank">
+                                {link.title}
+                            </a>
                         </li>
-                    )}
+                    ))}
                 </ul>
             </div>
         </div>

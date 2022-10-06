@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useCallback, useEffect, useState} from 'react';
 import {Button, Rate} from 'antd';
 import {useSelector, useDispatch} from "react-redux";
 import {addProduct} from "../../redux/slices/cartSlice.js";
@@ -18,7 +18,7 @@ const ProductItem = ({id, title, image, rating, price, description}) => {
         findItem ? setAmount(findItem.quantity) : 0;
     }, [findItem])
 
-    const addToCart = () => {
+    const addToCart = useCallback(() => {
         const product = {
             id: id,
             title: title,
@@ -28,7 +28,7 @@ const ProductItem = ({id, title, image, rating, price, description}) => {
             quantity: 1,
         }
         dispatch(addProduct(product))
-    }
+    }, []);
 
     return (
         <li className="product-item">
@@ -50,4 +50,4 @@ const ProductItem = ({id, title, image, rating, price, description}) => {
     );
 };
 
-export default ProductItem;
+export default memo(ProductItem);
