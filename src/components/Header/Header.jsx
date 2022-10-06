@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {memo, useState, useMemo, useEffect} from 'react';
 import {NavLink} from "react-router-dom";
 import {ShoppingCartOutlined} from '@ant-design/icons';
 
@@ -9,6 +9,7 @@ const nav = ['Main', 'Cart', 'About'];
 
 const Header = () => {
     const [page, setPage] = useState(0);
+
     const cart = useSelector(state => state.cart.cart);
     const total = useSelector(state => state.cart.total);
 
@@ -50,4 +51,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default memo(Header);

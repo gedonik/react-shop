@@ -36,9 +36,11 @@ export const catalogSlice = createSlice({
             {key: "jewelery", title: "Jewelery"},
             {key: "electronics", title: "Tech"},
         ],
+        currentCategory: 'all'
     },
     reducers: {
         filterCategories(state, action) {
+            state.currentCategory = action.payload;
             state.filteredCat = state.products.filter(product => {
                 if (action.payload === 'all') {
                     return state.products;
@@ -90,6 +92,6 @@ export const catalogSlice = createSlice({
     }
 })
 
-export const {filterCategories, sortProducts, searchProduct,} = catalogSlice.actions;
+export const {filterCategories, sortProducts, searchProduct} = catalogSlice.actions;
 
 export default catalogSlice.reducer;

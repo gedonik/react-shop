@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit';
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -16,24 +16,23 @@ export const cartSlice = createSlice({
         },
         removeProduct(state, action) {
             state.cart = state.cart.filter(item => item.id !== action.payload);
-            //Вызывать тут второй раз функцию очень плохо (DRY), как этого не делать ?
             state.total = state.cart.reduce((sum, item) => {
                 return item.price * item.quantity + sum;
-            }, 0).toFixed(2);
+            }, 0).toFixed(2)
         },
         riseQuantity(state, action) {
             const findProduct = state.cart.find(item => item.id === action.payload);
             findProduct ? findProduct.quantity++ : null;
             state.total = state.cart.reduce((sum, item) => {
                 return item.price * item.quantity + sum;
-            }, 0).toFixed(2);
+            }, 0).toFixed(2)
         },
         reduceQuantity(state, action) {
             const findProduct = state.cart.find(item => item.id === action.payload);
             findProduct && findProduct.quantity > 0 ? findProduct.quantity-- : null;
             state.total = state.cart.reduce((sum, item) => {
                 return item.price * item.quantity + sum;
-            }, 0).toFixed(2);
+            }, 0).toFixed(2)
         },
         clearCart(state) {
             state.cart = [];

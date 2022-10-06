@@ -1,4 +1,4 @@
-import React, {memo, useCallback} from 'react';
+import React from 'react';
 import {Select} from "antd";
 import {useDispatch} from "react-redux";
 import {sortProducts} from "../../../redux/slices/catalogSlice.js";
