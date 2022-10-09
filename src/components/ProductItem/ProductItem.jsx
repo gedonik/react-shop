@@ -9,9 +9,6 @@ const ProductItem = ({id, title, image, rating, price, description}) => {
     const cart = useSelector(state => state.cart.cart);
     const dispatch = useDispatch();
     const [amount, setAmount] = useState(0);
-
-    console.log('product-item');
-
     const [findItem] = cart.filter(item => item.id === id);
 
     useEffect(() => {

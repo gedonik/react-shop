@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import CartItem from "../CartItem/CartItem.jsx";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
@@ -34,4 +34,4 @@ const CartList = () => {
     );
 };
 
-export default CartList;
+export default memo(CartList);

@@ -1,24 +1,24 @@
 .about {
   &__title {
-    padding-top: 10px;
-    font-size: 26px;
+    padding-top: 0.625rem;
+    font-size: 1.625rem;
     font-weight: 700;
     text-align: center;
     border-top: 2px dashed var(--main-blue);
   }
 
   &__description {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   &__list {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   &__link {
     color: var(--dark-color);
-    font-size: 25px;
+    font-size: 1.563rem;
   }
 }
