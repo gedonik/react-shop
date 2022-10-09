@@ -24,12 +24,20 @@
 @media screen and (max-width: 1050px) {
   .filter {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-right: 0.625rem;
+  }
+}
 
-    &__list {
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-right: 10px;
-      margin-bottom: 0.938rem !important;
-    }
+@media screen and (max-width: 952px) {
+  .filter {
+    margin-bottom: 0.938rem !important;
+  }
+}
+
+@media screen and (max-width: 952px) {
+  .filter__item {
+    margin-bottom: 0.938rem !important;
   }
 }

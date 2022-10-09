@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {CloseOutlined} from '@ant-design/icons';
 import {reduceQuantity, riseQuantity, removeProduct} from "../../redux/slices/cartSlice.js";
 import {useDispatch} from "react-redux";
@@ -16,7 +16,7 @@ const CartItem = ({id, title, image, price, quantity}) => {
                 <span className="cart-item__price">{price} $</span>
                 <div className="cart-item__quantity-wrapper quantity">
                     <button onClick={() => dispatch(reduceQuantity(id))} className="quantity__add quantity__btn">-</button>
-                    <input className="quantity__value" type="text" value={quantity}/>
+                    <input className="quantity__value" type="text" value={quantity} readOnly/>
                     <button onClick={() => dispatch(riseQuantity(id))} className="quantity__remove quantity__btn">+</button>
                 </div>
                 <span className="cart-item__total"><strong>{price * quantity} $</strong></span>
@@ -27,4 +27,4 @@ const CartItem = ({id, title, image, price, quantity}) => {
     );
 };
 
-export default CartItem;
+export default memo(CartItem);

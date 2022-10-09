@@ -67,3 +67,28 @@
     }
   }
 }
+
+@media screen and (max-width: 400px) {
+  .header .header-cart {
+    display: flex;
+    flex-direction: column;
+
+    &__total-price{
+      &::after {
+        top: 100%;
+        width: 100%;
+        height: 0.094rem;
+      }
+    }
+
+    &__total-price,
+    &__total-quantity {
+      align-self: center;
+      padding: 0.313rem;
+    }
+  }
+
+  .header__list {
+    flex-direction: column;
+  }
+}

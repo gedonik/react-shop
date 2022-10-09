@@ -18,7 +18,7 @@ const Home = () => {
             <Header/>
             <Filters/>
             {status === 'loading' && <h2 className="loading">Loading...</h2>}
-            {error && <h2 className="loading">An error occured: {error}</h2>}
+            {error && <h2 className="loading">An error occurred: {error}</h2>}
             <ProductList/>
         </div>
     );

@@ -1,6 +1,8 @@
 .sort {
   @media screen and (max-width: 1050px) {
     order: 1 !important;
+  }
+  @media screen and (max-width: 952px) {
     margin-bottom: 0.938rem !important;
   }
 }

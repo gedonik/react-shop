@@ -13,7 +13,6 @@ const Search = () => {
     const searchProd = (e) => {
         e.preventDefault();
         dispatch(searchProduct(search));
-        console.log(search);
         setSearch('');
     }
 

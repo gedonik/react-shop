@@ -1,6 +1,11 @@
 @media screen and (max-width: 1050px) {
   .search {
+    margin-right: 0.938rem !important;
+  }
+}
+
+@media screen and (max-width: 952px) {
+  .search {
     margin-bottom: 0.938rem !important;
-    margin-right: 15px !important;
   }
 }

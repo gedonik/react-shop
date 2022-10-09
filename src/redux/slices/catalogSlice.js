@@ -72,7 +72,7 @@ export const catalogSlice = createSlice({
             }
         },
         searchProduct(state, action) {
-            state.filteredCat = state.filteredCat.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()));
+            state.filteredCat = state.products.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()));
         },
     },
     extraReducers: {
