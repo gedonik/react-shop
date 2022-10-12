@@ -16,6 +16,10 @@ Clone my project, after type in terminal:
 
 HTML, CSS, SCSS, React, React-router, Redux-toolkit, Axios, Aint-Design, Fontawesome.
 
+## Demo
+
+https://react-shop-pi-five.vercel.app/
+
 ## Screenshots
 
 ![App Screenshot](https://i.postimg.cc/1zsFG8Zw/react-shop1.jpg)
