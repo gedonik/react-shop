@@ -1,6 +1,6 @@
-import Header from "../components/Header/Header.jsx";
-import ProductList from "../components/ProductList/ProductList.jsx";
-import Filters from "../components/Filters/Filters.jsx";
+import Header from "../components/Header/Header.js";
+import ProductList from "../components/ProductList/ProductList.js";
+import Filters from "../components/Filters/Filters.js";
 import {useEffect} from "react";
 import {fetchApi} from "../redux/slices/catalogSlice.js";
 import {useDispatch, useSelector} from "react-redux";

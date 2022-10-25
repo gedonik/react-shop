@@ -1,13 +1,13 @@
 import React, {memo} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import CartItem from "../CartItem/CartItem.jsx";
+import CartItem from "../CartItem/CartItem.tsx";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import {clearCart} from "../../redux/slices/cartSlice.js";
 import {Button} from 'antd';
 
 import './cartList.scss';
 
-const CartList = () => {
+const CartList: React.FC = () => {
     const cart = useSelector(state => state.cart.cart);
     const dispatch = useDispatch();
 

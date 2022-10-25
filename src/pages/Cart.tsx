@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from "../components/Header/Header.jsx";
-import CartList from "../components/CartList/CartList.jsx";
+import Header from "../components/Header/Header.js";
+import CartList from "../components/CartList/CartList.js";
 
 const Cart = () => {
     return (

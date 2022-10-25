@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import axios from "axios";
 
 const API_URL = "https://fakestoreapi.com/products";
@@ -16,30 +16,32 @@ export const fetchApi = createAsyncThunk(
             }
 
             return response;
-        } catch (error) {
+        } catch (error: any) {
             return rejectWithValue(error.message);
         }
     }
 )
 
+const initialState = {
+    status: null,
+    error: null,
+    products: [],
+    filteredCat: [],
+    categories: [
+        {key: 'all', title: 'All'},
+        {key: "men's clothing", title: "Men's wear"},
+        {key: "women's clothing", title: "Women's wear"},
+        {key: "jewelery", title: "Jewelery"},
+        {key: "electronics", title: "Tech"},
+    ],
+    currentCategory: 'all'
+}
+
 export const catalogSlice = createSlice({
     name: 'catalog',
-    initialState: {
-        status: null,
-        error: null,
-        products: [],
-        filteredCat: [],
-        categories: [
-            {key: 'all', title: 'All'},
-            {key: "men's clothing", title: "Men's wear"},
-            {key: "women's clothing", title: "Women's wear"},
-            {key: "jewelery", title: "Jewelery"},
-            {key: "electronics", title: "Tech"},
-        ],
-        currentCategory: 'all'
-    },
+    initialState,
     reducers: {
-        filterCategories(state, action) {
+        filterCategories(state, action: PayloadAction<string>) {
             state.currentCategory = action.payload;
             state.filteredCat = state.products.filter(product => {
                 if (action.payload === 'all') {
@@ -75,23 +77,40 @@ export const catalogSlice = createSlice({
             state.filteredCat = state.products.filter(item => item.title.toLowerCase().includes(action.payload.toLowerCase()));
         },
     },
-    extraReducers: {
-        [fetchApi.pending]: (state) => {
+    extraReducers: (builder) => {
+        builder.addCase(fetchApi.pending, (state, action) => {
             state.status = 'loading';
             state.error = null;
-        },
-        [fetchApi.fulfilled]: (state, action) => {
+        });
+
+        builder.addCase(fetchApi.fulfilled, (state, action) => {
             state.status = 'resolved';
             state.products = action.payload;
             state.filteredCat = action.payload;
-        },
-        [fetchApi.rejected]: (state, action) => {
+        });
+
+        builder.addCase(fetchApi.rejected, (state, action) => {
             state.status = 'rejected';
             state.error = action.payload;
-        },
+        });
     }
 })
 
 export const {filterCategories, sortProducts, searchProduct} = catalogSlice.actions;
 
 export default catalogSlice.reducer;
+
+
+// [fetchApi.pending]: (state) => {
+//     state.status = 'loading';
+//     state.error = null;
+// },
+//     [fetchApi.fulfilled]: (state, action) => {
+//     state.status = 'resolved';
+//     state.products = action.payload;
+//     state.filteredCat = action.payload;
+// },
+//     [fetchApi.rejected]: (state, action) => {
+//     state.status = 'rejected';
+//     state.error = action.payload;
+// },

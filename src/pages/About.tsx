@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from "../components/Header/Header.jsx";
+import Header from "../components/Header/Header.js";
 import {GithubOutlined, LinkedinOutlined, MailOutlined, PhoneOutlined} from '@ant-design/icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faVk, faTelegram} from "@fortawesome/free-brands-svg-icons";

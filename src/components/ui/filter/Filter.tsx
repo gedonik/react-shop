@@ -5,19 +5,19 @@ import {filterCategories} from "../../../redux/slices/catalogSlice.js";
 
 import './filter.scss';
 
-const Filter = () => {
+const Filter: React.FC = () => {
     const buttons = useSelector(state => state.catalog.categories);
     const [category, setCategory] = useState(0);
     const dispatch = useDispatch();
 
-    const filterCat = useCallback((index, category) => {
+    const filterCat = useCallback((index:number, category:string) => {
         setCategory(index);
         dispatch(filterCategories(category));
     }, [])
 
     return (
         <ul className="filter">
-            {buttons.map((button, idx) =>
+            {buttons.map((button, idx:number) =>
                 <Button
                     onClick={() => filterCat(idx, button.key)}
                     className={`filter__item ${category === idx ? 'active' : ''}`}

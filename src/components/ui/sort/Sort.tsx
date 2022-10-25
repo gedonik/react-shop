@@ -5,11 +5,11 @@ import {sortProducts} from "../../../redux/slices/catalogSlice.js";
 
 import './sort.scss';
 
-const Sort = () => {
+const Sort: React.FC = () => {
     const {Option} = Select;
     const dispatch = useDispatch();
 
-    const onChange = (value) => {
+    const onChange = (value: string) => {
         dispatch(sortProducts(value));
     };
 
@@ -20,7 +20,7 @@ const Sort = () => {
             placeholder="Select a sort"
             optionFilterProp="children"
             onChange={onChange}
-            filterOption={(input, option) => option.children.toLowerCase().includes(input.toLowerCase())}
+            filterOption={(input, option) => (option!.children as unknown as string).toLowerCase().includes(input.toLowerCase())}
         >
             <Option value="rating-to-low">Rating to low</Option>
             <Option value="rating-to-high">Rating to high</Option>

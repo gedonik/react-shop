@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 
 const nav = ['Main', 'Cart', 'About'];
 
-const Header = () => {
+const Header: React.FC = () => {
     const [page, setPage] = useState(0);
     const cart = useSelector(state => state.cart.cart);
     const total = useSelector(state => state.cart.total);

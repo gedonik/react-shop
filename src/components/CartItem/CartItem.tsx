@@ -5,7 +5,15 @@ import {useDispatch} from "react-redux";
 
 import './cartItem.scss';
 
-const CartItem = ({id, title, image, price, quantity}) => {
+type CartItemProps = {
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+    quantity: number;
+}
+
+const CartItem: React.FC<CartItemProps> = ({id, title, image, price, quantity}) => {
     const dispatch = useDispatch();
 
     return (

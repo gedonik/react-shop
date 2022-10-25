@@ -1,6 +1,25 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {RootState} from "../store";
 
-const totalCount = (state) => {
+type CartItem = {
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+    quantity: number;
+}
+
+interface CartSliceState {
+    totalPrice: number;
+    items: CartItem[];
+}
+
+const initialState: CartSliceState = {
+    totalPrice: 0,
+    items: []
+}
+
+const totalCount = (state: RootState) => {
     state.total = state.cart.reduce((sum, item) => {
         return item.price * item.quantity + sum;
     }, 0).toFixed(2)
@@ -8,12 +27,9 @@ const totalCount = (state) => {
 
 export const cartSlice = createSlice({
     name: 'cart',
-    initialState: {
-        cart: [],
-        total: 0,
-    },
+    initialState,
     reducers: {
-        addProduct(state, action) {
+        addProduct(state, action: PayloadAction<number>) {
             const findProduct = state.cart.find(item => item.id === action.payload.id);
             findProduct ? findProduct.quantity++ : state.cart.push(action.payload);
             totalCount(state);

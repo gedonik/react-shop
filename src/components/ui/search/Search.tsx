@@ -5,12 +5,12 @@ import {useDispatch} from "react-redux";
 
 import './search.scss';
 
-const Search = () => {
+const Search: React.FC = () => {
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
     const {Search} = Input;
 
-    const searchProd = (e) => {
+    const searchProd = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         dispatch(searchProduct(search));
         setSearch('');

@@ -1,11 +1,11 @@
 import React, {memo} from 'react';
-import ProductItem from "../ProductItem/ProductItem.jsx";
+import ProductItem from "../ProductItem/ProductItem.tsx";
 import {useSelector} from "react-redux";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 import './productList.scss';
 
-const ProductList = () => {
+const ProductList: React.FC = () => {
     const filteredProducts = useSelector(state => state.catalog.filteredCat);
 
     return (

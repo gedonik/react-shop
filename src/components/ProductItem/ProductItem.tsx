@@ -5,7 +5,16 @@ import {addProduct} from "../../redux/slices/cartSlice.js";
 
 import './productItem.scss';
 
-const ProductItem = ({id, title, image, rating, price, description}) => {
+type ProductItem = {
+    id: number;
+    title: string;
+    image: string;
+    rating: object;
+    price: number;
+    description: string;
+}
+
+const ProductItem: React.FC<ProductItem> = ({id, title, image, rating, price, description}) => {
     const cart = useSelector(state => state.cart.cart);
     const dispatch = useDispatch();
     const [amount, setAmount] = useState(0);
